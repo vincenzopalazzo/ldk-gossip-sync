@@ -12,7 +12,8 @@ fn main() -> anyhow::Result<()> {
     let mut builder = Builder::new();
     builder.set_network(Network::Bitcoin);
     builder.set_esplora_server("https://blockstream.info/api".to_string());
-
+    builder.set_log_level(ldk_node::LogLevel::Gossip);
+    builder.set_log_dir_path("/home/vincent/ldk".to_owned());
     let node = builder.build()?;
 
     node.start()?;
