@@ -1,14 +1,12 @@
 use std::str::FromStr;
 
-use lampo_common::ldk::routing::gossip::NodeId;
 use ldk_node::bitcoin::secp256k1::PublicKey;
 use ldk_node::bitcoin::Network;
 use ldk_node::lightning::ln::msgs::SocketAddress;
+use ldk_node::lightning::routing::gossip::NodeId;
 use ldk_node::Builder;
 
 fn main() -> anyhow::Result<()> {
-    lampo_common::logger::init("debug", None)?;
-
     let mut builder = Builder::new();
     builder.set_network(Network::Bitcoin);
     builder.set_esplora_server("https://blockstream.info/api".to_string());
